@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja da Copa do Mundo FIFA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header-titulo">Loja <span class="fifa-red">FIFA</span></h1>
+      <video class="video-fundo" autoplay muted loop>
+        <source src="VideoCopa.mp4" type="video/mp4" />
+        Seu navegador não suporta o elemento de vídeo.
+      </video>
+    </header>
+    <main class="container">
+      <div class="container-titulo">
+        <img src="img/pngwing.com.png" alt="Renatão" class="imagem" />
+        <h1>Albuns Copa do Mundo FIFA</h1>
+      </div>
+      <form class="form-paragrafo">
+        <p>Escolha o produto</p>
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="100" />
+          Album 2006
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="101" />
+          Album 2010
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="102" />
+          Album 2014
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="103" />
+          Album 2018
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="104" />
+          Album 2022
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="produto" id="produto" value="105" />
+          Album 2026
+        </label>
+        <br />
+
+        <p class="quantidade-titulo">Quantidade de Pacotes</p>
+
+        <label class="form-rotulo">
+          <input type="radio" name="quantidade" value="1" checked />
+          1 Pacote
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="quantidade" value="5" />
+          5 Pacotes
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="quantidade" value="10" />
+          10 Pacotes
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="quantidade" value="50" />
+          50 Pacotes
+        </label>
+        <br />
+
+        <button type="button" class="botao" onclick="comprarProdutos()">
+          Comprar
+        </button>
+      </form>
+
+      <hr class="separador" id="separador-pagamento" />
+
+      <div class="forma-pagamento-section" id="forma-pagamento-section">
+        <p class="pagamento-titulo">Forma de Pagamento</p>
+
+        <label class="form-rotulo">
+          <input type="radio" name="pagamento" value="credito" checked />
+          Cartão de Crédito
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="pagamento" value="debito" />
+          Cartão de Débito
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="pagamento" value="pix" />
+          PIX
+        </label>
+        <br />
+
+        <label class="form-rotulo">
+          <input type="radio" name="pagamento" value="boleto" />
+          Boleto
+        </label>
+        <br />
+
+        <button class="botao botao-confirmar" onclick="confirmarCompra()">
+          Confirmar Compra
+        </button>
+      </div>
+
+      <hr class="separador" />
+
+      <div class="resumo-pedido">
+        <p class="resumo-titulo">Resumo do Pedido</p>
+        <div class="resumo-item">
+          <span>Produto Selecionado:</span>
+          <span id="produto-selecionado">Nenhum</span>
+        </div>
+        <div class="resumo-item">
+          <span>Forma de Pagamento:</span>
+          <span id="pagamento-selecionado">Cartão de Crédito</span>
+        </div>
+        <div class="resumo-item">
+          <span>Quantidade de Pacotes:</span>
+          <span id="quantidade-selecionada">1</span>
+        </div>
+        <div class="resumo-item total">
+          <span>Valor Total:</span>
+          <span id="valor-total">R$ 0,00</span>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
