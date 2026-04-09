@@ -90,9 +90,9 @@
         </button>
       </form>
 
-      <hr class="separador" id="separador-pagamento" />
+      <hr class="separador" />
 
-      <div class="forma-pagamento-section" id="forma-pagamento-section">
+      <div class="forma-pagamento-section">
         <p class="pagamento-titulo">Forma de Pagamento</p>
 
         <label class="form-rotulo">
@@ -118,10 +118,6 @@
           Boleto
         </label>
         <br />
-
-        <button class="botao botao-confirmar" onclick="confirmarCompra()">
-          Confirmar Compra
-        </button>
       </div>
 
       <hr class="separador" />
@@ -136,14 +132,11 @@
           <span>Forma de Pagamento:</span>
           <span id="pagamento-selecionado">Cartão de Crédito</span>
         </div>
-        <div class="resumo-item">
-          <span>Quantidade de Pacotes:</span>
-          <span id="quantidade-selecionada">1</span>
-        </div>
         <div class="resumo-item total">
           <span>Valor Total:</span>
           <span id="valor-total">R$ 0,00</span>
         </div>
+        <div id="resultado-compra" class="resultado-compra"></div>
       </div>
     </main>
     <script src="script.js"></script>

@@ -54,12 +54,10 @@ function atualizarResumo() {
     const valorTotal = precoFinal * quantidade;
 
     document.getElementById("produto-selecionado").textContent = produto.nome;
-    document.getElementById("quantidade-selecionada").textContent = quantidade;
     document.getElementById("valor-total").textContent =
       `R$ ${valorTotal.toFixed(2).replace(".", ",")}`;
   } else {
     document.getElementById("produto-selecionado").textContent = "Nenhum";
-    document.getElementById("quantidade-selecionada").textContent = "0";
     document.getElementById("valor-total").textContent = "R$ 0,00";
   }
 
@@ -81,28 +79,17 @@ function comprarProdutos() {
   const produtoSelecionado = document.querySelector(
     'input[name="produto"]:checked',
   );
-
-  if (!produtoSelecionado) {
-    alert("Por favor, selecione um produto!");
-    return;
-  }
-
-  // Mostrar a seção de pagamento
-  document.getElementById("forma-pagamento-section").classList.add("visible");
-  document.getElementById("separador-pagamento").classList.add("visible");
-}
-
-// Função para confirmar compra após selecionar pagamento
-function confirmarCompra() {
-  const produtoSelecionado = document.querySelector(
-    'input[name="produto"]:checked',
-  );
   const pagamentoSelecionado = document.querySelector(
     'input[name="pagamento"]:checked',
   );
   const quantidadeSelecionada = document.querySelector(
     'input[name="quantidade"]:checked',
   );
+
+  if (!produtoSelecionado) {
+    alert("Por favor, selecione um produto!");
+    return;
+  }
 
   if (!pagamentoSelecionado) {
     alert("Por favor, selecione uma forma de pagamento!");
@@ -132,16 +119,16 @@ function confirmarCompra() {
   }
 
   const valorTotal = precoFinal * quantidade;
+  const resultadoCompra = document.getElementById("resultado-compra");
 
-  alert(
-    `Compra realizada com sucesso!\n\nProduto: ${produto.nome}\nQuantidade: ${quantidade} pacote(s)\nValor unitário: R$ ${precoFinal.toFixed(2).replace(".", ",")}${desconto}\nValor Total: R$ ${valorTotal.toFixed(2).replace(".", ",")}\nForma de Pagamento: ${formaPagamento.toUpperCase()}`,
-  );
-
-  // Ocultar a seção de pagamento novamente
-  document
-    .getElementById("forma-pagamento-section")
-    .classList.remove("visible");
-  document.getElementById("separador-pagamento").classList.remove("visible");
+  resultadoCompra.innerHTML = `
+    <p class="resultado-sucesso">Compra realizada com sucesso!</p>
+    <p><strong>Produto:</strong> ${produto.nome}</p>
+    <p><strong>Quantidade:</strong> ${quantidade} pacote(s)</p>
+    <p><strong>Valor unitário:</strong> R$ ${precoFinal.toFixed(2).replace(".", ",")}${desconto}</p>
+    <p><strong>Valor total:</strong> R$ ${valorTotal.toFixed(2).replace(".", ",")}</p>
+    <p><strong>Forma de pagamento:</strong> ${formaPagamento.toUpperCase()}</p>
+  `;
 }
 
 // Inicializar resumo na carga da página
